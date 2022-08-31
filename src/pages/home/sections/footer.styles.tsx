@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { device } from '../../../common/styles/breakpoints';
 import { Colors } from '../../../common/styles/colors';
+import { Phone } from '../../../components/contact-item';
 export const FooterContents = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,17 +25,8 @@ export const ContactBoxContainer = styled.div`
   }
 `;
 
-export const ContactBox = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  color: ${Colors.blue};
-  text-decoration: none;
-
-  svg {
-    margin-right: 10px;
-  }
+export const StyledPhone = styled(Phone)`
+  margin-bottom: 10px;
 `;
 
 export const SocialBox = styled.div`

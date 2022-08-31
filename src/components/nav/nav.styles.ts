@@ -1,130 +1,86 @@
 import styled from 'styled-components';
 import { device } from '../../common/styles/breakpoints';
 import { Colors } from '../../common/styles/colors';
+import { Phone } from '../contact-item';
+import { Image } from '../image';
 
-export const NavContainer = styled.div`
-  height: 130px;
-  width: 100%;
+const heightDesktop = 150;
+const heightMobile = 140;
+
+export const NavSpacer = styled.div`
+  height: ${heightMobile}px;
+
+  @media only screen and ${device.tablet} {
+    height: ${heightDesktop}px;
+  }
 `;
 
-interface NavContentsProps {
-  isNavFullSize: boolean;
-  shouldAnimate: boolean;
-}
-
-export const NavContentsWrapper = styled.div`
+export const NavContainer = styled.nav`
   position: fixed;
-  left: 0;
-  top: 0;
+  height: ${heightMobile}px;
   width: 100%;
-  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-`;
-
-export const NavContents = styled.nav<NavContentsProps>`
+  max-width: 1200px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  padding: 10px;
   box-sizing: border-box;
-  padding: ${(props) => (props.isNavFullSize ? '10px' : '5px')};
+
+  background-color: ${Colors.white};
+  z-index: 9999;
+
+  @media only screen and ${device.tablet} {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    height: ${heightDesktop}px;
+    padding: 20px;
+  }
+`;
+
+export const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
-  background: white;
-  transition: ${({ shouldAnimate }) => (shouldAnimate ? 'padding 200ms linear' : 'none')};
-  max-width: 1200px;
+
+  p {
+    align-self: center;
+  }
+
+  @media only screen and ${device.tablet} {
+    justify-content: flex-start;
+    width: initial;
+  }
+`;
+
+export const GokoLogo = styled(Image)`
+  height: ${heightMobile * 0.5}px;
   margin: 0 auto;
-  z-index: 1;
-`;
-
-interface ImageProps {
-  isNavFullSize: boolean;
-  shouldAnimate: boolean;
-}
-
-export const Image = styled.img<ImageProps>`
-  height: ${(props) => (props.isNavFullSize ? 70 : 50)}px;
-  transition: ${({ shouldAnimate }) => (shouldAnimate ? 'height 200ms linear' : 'none')};
+  margin-right: 10px;
 
   @media only screen and ${device.tablet} {
-    height: ${(props) => (props.isNavFullSize ? 110 : 70)}px;
+    height: ${heightDesktop * 0.7}px;
   }
 `;
 
-export const LogoContainer = styled.div`
+export const IconContainer = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-
-  @media only screen and ${device.tablet} {
-    justify-content: flex-start;
-    width: unset;
-  }
-`;
-
-interface NavTextProps {
-  isNavFullSize: boolean;
-  shouldAnimate: boolean;
-}
-
-export const NavText = styled.p<NavTextProps>`
-  margin: 0;
   padding-left: 10px;
-  color: ${Colors.blueDark};
-  font-size: ${(props) => (props.isNavFullSize ? 14 : 12)}px;
-  line-height: ${(props) => (props.isNavFullSize ? 24 : 18)}px;
-  transition: ${({ shouldAnimate }) => (shouldAnimate ? 'font-size 200ms linear, line-height 200ms linear' : 'none')};
-
-  @media only screen and ${device.tablet} {
-    font-size: ${(props) => (props.isNavFullSize ? 18 : 14)}px;
-  }
-`;
-
-export const ContactContainer = styled.ul`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-
-  @media only screen and ${device.tablet} {
-    justify-content: flex-start;
-    width: unset;
-  }
-`;
-
-export const PhoneContainer = styled.li`
-  border: 1px solid ${Colors.blueDark};
-  padding: 0;
-  margin: 0;
-`;
-export const Phone = styled.a`
-  display: flex;
-  padding: 5px 15px;
-  align-items: center;
-  color: ${Colors.blueDark};
-  text-decoration: none;
-`;
-
-interface IconContainerProps {
-  isNavFullSize: boolean;
-  withPadding?: boolean;
-  shouldAnimate: boolean;
-}
-
-export const IconContainer = styled.span<IconContainerProps>`
-  display: flex;
-  padding-left: ${({ withPadding = true }) => (withPadding ? 10 : 0)}px;
-  font-size: ${({ isNavFullSize }) => (isNavFullSize ? 24 : 18)}px;
-  transition: ${({ shouldAnimate }) => (shouldAnimate ? 'font-size 200ms linear' : 'none')};
+  font-size: 28px;
 
   a {
     display: flex;
   }
 `;
 
-// export const Social = styled(IconContainer).i`
+export const ClickableItems = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-// `;
+export const StyledPhone = styled(Phone)`
+  margin-right: 10px;
+`;

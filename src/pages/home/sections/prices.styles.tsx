@@ -1,3 +1,4 @@
+import { FaMinus, FaPlus } from 'react-icons/fa';
 import styled from 'styled-components';
 import { device } from '../../../common/styles/breakpoints';
 import { Colors } from '../../../common/styles/colors';
@@ -51,5 +52,21 @@ export const Alert = styled.div`
 
   svg {
     margin-right: 10px;
+  }
+`;
+
+export const StyledPlus = styled(FaPlus)`
+  font-size: 16px;
+
+  @media only screen and ${device.tablet} {
+    font-size: 23px;
+  }
+`;
+
+export const StyledMinus = styled(FaMinus)`
+  font-size: 16px;
+
+  @media only screen and ${device.tablet} {
+    font-size: 23px;
   }
 `;

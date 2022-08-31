@@ -67,6 +67,7 @@ const getMargin = (device: 'desktop' | 'mobile') => (props) => {
 
 const getWeight = (props) => {
   if (props?.weight) {
+    console.log('weight')
     const weightMap = {
       bold: 900,
       normal: 500,
@@ -88,6 +89,7 @@ interface TextProps {
   margin?: Margin;
   weight?: 'bold' | 'normal' | 'light';
   onClick?: () => void;
+  className?: string;
 }
 
 const StyledText = styled.p<Pick<TextProps, 'alignment' | 'margin' | 'weight'>>`
@@ -115,9 +117,10 @@ export const Text: FC<PropsWithChildren<TextProps>> = ({
   margin,
   weight,
   onClick,
+  className,
 }) => {
   const textTheme: ThemeProperties = theme?.[type] ?? theme.paragraph;
-  const textColor = (color || textTheme?.color) ?? Colors.black;
+  const textColor = (Colors?.[color] || textTheme?.color) ?? Colors.black;
 
   return (
     <StyledText
@@ -129,6 +132,7 @@ export const Text: FC<PropsWithChildren<TextProps>> = ({
       margin={margin}
       weight={weight}
       onClick={onClick}
+      className={className}
     >
       {children}
     </StyledText>

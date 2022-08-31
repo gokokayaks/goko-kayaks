@@ -78,12 +78,12 @@ export const Welcome = () => {
         Welcome to Goko Kayaks!
       </Text>
       <br />
-      <Text type="paragraph" color="white" alignment={alignment}>
+      <Text type="paragraph" color="white" alignment={alignment} weight="normal">
         We are Goko, a family of adventurers specializing in kayaking. Collectively, we have been helping others
         adventure the water for 12 years.
       </Text>
       <br />
-      <Text type="paragraph" color="white" alignment={alignment}>
+      <Text type="paragraph" color="white" alignment={alignment} weight="normal">
         We open six days a week <OpeningTimeText>8am - 6pm!</OpeningTimeText> Closed Thursdays.
       </Text>
       <br />

@@ -1,9 +1,9 @@
 import React from 'react';
-import { FaEnvelope, FaFacebook, FaInstagram, FaPhone, FaWix } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaWix } from 'react-icons/fa';
 import { Section } from '../../../components/section';
 import { Text } from '../../../components/text';
 import { Image } from '../../../components/image';
-import { ContactBox, ContactBoxContainer, SocialBox, FooterContents, ImageBox } from './footer.styles';
+import { StyledPhone, ContactBoxContainer, SocialBox, FooterContents, ImageBox } from './footer.styles';
 import britishCanoeingWebp from '../../../images/footer/british-canoeing.webp';
 import britishCanoeingJpeg from '../../../images/footer/british-canoeing.jpg';
 import kidsSavingOceansWebp from '../../../images/footer/kids-saving-oceans.webp';
@@ -12,6 +12,7 @@ import pinellasWebp from '../../../images/footer/pinellas.webp';
 import pinellasJpeg from '../../../images/footer/pinellas.jpg';
 import prideWebp from '../../../images/footer/pride.webp';
 import prideJpeg from '../../../images/footer/pride.jpg';
+import { Email } from '../../../components/contact-item';
 
 export const FooterSection = () => {
   const currentYear = new Date().getFullYear();
@@ -22,14 +23,8 @@ export const FooterSection = () => {
           <Text type="subHeading" color="white">
             Contact Us:
           </Text>
-          <ContactBox href="tel:7273369595">
-            <FaPhone />
-            (727)-336-9595
-          </ContactBox>
-          <ContactBox href="mailto:gokokayaks@gmail.com">
-            <FaEnvelope />
-            gokokayaks@gmail.com
-          </ContactBox>
+          <StyledPhone />
+          <Email />
         </ContactBoxContainer>
         <ImageBox>
           <Image webp={pinellasWebp} fallback={pinellasJpeg} alt="Pinellas County" />

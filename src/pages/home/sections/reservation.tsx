@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Colors } from '../../../common/styles/colors';
 import { Section } from '../../../components/section';
 import { Text } from '../../../components/text';
-import { FaPhone, FaEnvelope } from 'react-icons/fa';
 import { PricesSectionContext } from '../context/prices';
+import { Email, Phone } from '../../../components/contact-item';
 
 const ContactBoxContainer = styled.div`
   display: flex;
@@ -13,18 +12,8 @@ const ContactBoxContainer = styled.div`
   margin-top: 20px;
 `;
 
-const ContactBox = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 30px;
-  border: 1px solid ${Colors.white};
-  color: ${Colors.white};
-  text-decoration: none;
-
-  svg {
-    margin-right: 10px;
-  }
+const StyledPhone = styled(Phone)`
+  margin-right: 10px;
 `;
 
 export const ReservationSection = () => {
@@ -46,20 +35,14 @@ export const ReservationSection = () => {
       <Text type="paragraph" color="white" alignment="center">
         Please view our{' '}
         <Text type="link" href="#prices" weight="bold" color="white" onClick={handlePriceListLinkClick}>
-          price list
+          <u>price list</u>
         </Text>{' '}
         to see our cancellation policy.
       </Text>
 
       <ContactBoxContainer>
-        <ContactBox href="tel:7273369595">
-          <FaPhone />
-          Call Us
-        </ContactBox>
-        <ContactBox href="mailto:gokokayaks@gmail.com">
-          <FaEnvelope />
-          Email Us
-        </ContactBox>
+        <StyledPhone useWords inverted />
+        <Email useWords inverted />
       </ContactBoxContainer>
     </Section>
   );

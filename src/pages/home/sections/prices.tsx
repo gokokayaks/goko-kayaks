@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Text } from '../../../components/text';
-import { PricesContainer, TextContainer, ContentContainer, Alert } from './prices.styles';
+import { PricesContainer, TextContainer, ContentContainer, Alert, StyledPlus, StyledMinus } from './prices.styles';
 import { FaAsterisk } from 'react-icons/fa';
 import { PricesSectionContext } from '../context/prices';
 
@@ -15,7 +15,7 @@ export const PricesSection = () => {
     <PricesContainer id="prices">
       <TextContainer onClick={toggleSectionOpen}>
         <Text type="subHeading" color="white" alignment="center">
-          View Our Prices
+          View Our Prices {isSectionOpen ? <StyledMinus /> : <StyledPlus />}
         </Text>
       </TextContainer>
       <ContentContainer isSectionOpen={isSectionOpen}>
@@ -117,7 +117,7 @@ export const PricesSection = () => {
             </td>
             <td>
               <Text type="paragraph" color="black">
-                POA
+                –
               </Text>
             </td>
           </tr>
