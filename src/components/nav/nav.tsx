@@ -23,7 +23,7 @@ export const Nav = () => {
           <Text type="paragraph" color="blueDark">
             Quality kayak tours,
             <br />
-            xrentals and more.
+            rentals and more.
           </Text>
         </LogoWrapper>
         <ClickableItems>

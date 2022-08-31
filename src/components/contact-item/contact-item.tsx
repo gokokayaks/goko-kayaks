@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { FaPhone } from 'react-icons/fa';
+import { FaPhone, FaEnvelope } from 'react-icons/fa';
 import styled from 'styled-components';
 import { Colors } from '../../common/styles/colors';
 import { Text } from '../text';
@@ -46,7 +46,7 @@ export const Email: FC<ContactProps> = ({ useWords = false, className, inverted 
 
   return (
     <ContactItem href="mailto:gokokayaks@gmail.com" className={className} inverted={inverted}>
-      <FaPhone />
+      <FaEnvelope />
       <Text type="paragraph">{text}</Text>
     </ContactItem>
   );
