@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../../common/styles/colors';
 import { Section } from '../../../components/section';
 import { Text } from '../../../components/text';
 import { FaPhone, FaEnvelope } from 'react-icons/fa';
+import { PricesSectionContext } from '../context/prices';
 
 const ContactBoxContainer = styled.div`
   display: flex;
@@ -27,6 +28,12 @@ const ContactBox = styled.a`
 `;
 
 export const ReservationSection = () => {
+  const [, setPricesSection] = useContext(PricesSectionContext);
+
+  const handlePriceListLinkClick = () => {
+    setPricesSection(true);
+  };
+
   return (
     <Section color="blue">
       <Text type="subHeading" color="white" alignment="center">
@@ -38,7 +45,7 @@ export const ReservationSection = () => {
       </Text>
       <Text type="paragraph" color="white" alignment="center">
         Please view our{' '}
-        <Text type="link" href="#prices" weight="bold" color="white">
+        <Text type="link" href="#prices" weight="bold" color="white" onClick={handlePriceListLinkClick}>
           price list
         </Text>{' '}
         to see our cancellation policy.

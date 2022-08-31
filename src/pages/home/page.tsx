@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout } from '../../components/layout';
 import { EcoTourSection } from './sections/eco-tour';
 import { FooterSection } from './sections/footer';
@@ -13,23 +13,28 @@ import { WaterMeditationSection } from './sections/water-meditation';
 import { Welcome } from './sections/welcome';
 import { AwardSection } from './sections/award';
 import { WhatToBringSection } from './sections/what-to-bring';
+import { PricesSectionContext } from './context/prices';
 
 export const HomePage = () => {
+  const [pricesSectionOpen, setPricesSectionOpen] = useState(false);
+
   return (
-    <Layout>
-      <Welcome />
-      <AwardSection />
-      <LocationSection />
-      <EcoTourSection />
-      <RentalsSection />
-      <SunsetTourSection />
-      <WaterMeditationSection />
-      <TeamBuildingSection />
-      <InstructionSection />
-      <PricesSection />
-      <ReservationSection />
-      <WhatToBringSection />
-      <FooterSection />
-    </Layout>
+    <PricesSectionContext.Provider value={[pricesSectionOpen, setPricesSectionOpen]}>
+      <Layout>
+        <Welcome />
+        <AwardSection />
+        <LocationSection />
+        <EcoTourSection />
+        <RentalsSection />
+        <SunsetTourSection />
+        <WaterMeditationSection />
+        <TeamBuildingSection />
+        <InstructionSection />
+        <PricesSection />
+        <ReservationSection />
+        <WhatToBringSection />
+        <FooterSection />
+      </Layout>
+    </PricesSectionContext.Provider>
   );
 };

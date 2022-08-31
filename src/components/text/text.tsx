@@ -87,6 +87,7 @@ interface TextProps {
   alignment?: Alignment;
   margin?: Margin;
   weight?: 'bold' | 'normal' | 'light';
+  onClick?: () => void;
 }
 
 const StyledText = styled.p<Pick<TextProps, 'alignment' | 'margin' | 'weight'>>`
@@ -105,7 +106,16 @@ const StyledText = styled.p<Pick<TextProps, 'alignment' | 'margin' | 'weight'>>`
   }
 `;
 
-export const Text: FC<PropsWithChildren<TextProps>> = ({ type, color, children, href, alignment, margin, weight }) => {
+export const Text: FC<PropsWithChildren<TextProps>> = ({
+  type,
+  color,
+  children,
+  href,
+  alignment,
+  margin,
+  weight,
+  onClick,
+}) => {
   const textTheme: ThemeProperties = theme?.[type] ?? theme.paragraph;
   const textColor = (color || textTheme?.color) ?? Colors.black;
 
@@ -118,6 +128,7 @@ export const Text: FC<PropsWithChildren<TextProps>> = ({ type, color, children, 
       alignment={alignment}
       margin={margin}
       weight={weight}
+      onClick={onClick}
     >
       {children}
     </StyledText>

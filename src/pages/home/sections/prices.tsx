@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Text } from '../../../components/text';
 import { PricesContainer, TextContainer, ContentContainer, Alert } from './prices.styles';
 import { FaAsterisk } from 'react-icons/fa';
+import { PricesSectionContext } from '../context/prices';
 
 export const PricesSection = () => {
-  const [isSectionOpen, setIsSectionOpen] = useState(false);
+  const [isSectionOpen, setIsSectionOpen] = useContext(PricesSectionContext);
 
   const toggleSectionOpen = () => {
     setIsSectionOpen(!isSectionOpen);
