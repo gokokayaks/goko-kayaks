@@ -1,0 +1,3 @@
+{
+  "extends": "javascript-project-scripts/tsconfig.json",
+}

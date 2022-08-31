@@ -1,0 +1,9 @@
+/node_modules/
+dist
+.cache
+.DS_Store
+.yalc
+yalc.lock
+yarn-error.log
+.vscode
+sitemap.xml
